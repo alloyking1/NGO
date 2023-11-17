@@ -28,6 +28,11 @@ $logout = function (Logout $logout) {
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('campaign.list')" :active="request()->routeIs('campaign')" wire:navigate>
+                        {{ __('campaign') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -48,6 +53,9 @@ $logout = function (Logout $logout) {
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile')" wire:navigate>
                             {{ __('Profile') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('campaign.create')" wire:navigate>
+                            {{ __('Create campaign') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -91,6 +99,9 @@ $logout = function (Logout $logout) {
                 <x-responsive-nav-link :href="route('profile')" wire:navigate>
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
+                <x-dropdown-link :href="route('campaign.create')" wire:navigate>
+                    {{ __('Create campaign') }}
+                </x-dropdown-link>
 
                 <!-- Authentication -->
                 <button wire:click="logout" class="w-full text-start">

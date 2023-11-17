@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\GuestPagesController;
+use App\Models\Campaign;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +23,11 @@ Route::prefix('/')->group(function () {
     // Route::get('/partners', [GuestPagesController::class, 'index'])->name('partners');
     // Route::get('/campaigns', [GuestPagesController::class, 'index'])->name('campaigns');
     // Route::get('/', [GuestPagesController::class, 'index'])->name('home');
+});
+
+Route::prefix('/campaign')->group(function () {
+    Route::get('/', [CampaignController::class, 'index'])->name('campaign.list');
+    Route::get('/create', [CampaignController::class, 'create'])->name('campaign.create');
 });
 
 Route::view('dashboard', 'dashboard')

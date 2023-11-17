@@ -6,5 +6,12 @@ use Illuminate\Http\Request;
 
 class CampaignController extends Controller
 {
-    //
+    public function index()
+    {
+        return view('campaign.index');
+    }
+    public function create()
+    {
+        return view('campaign.create');
+    }
 }
